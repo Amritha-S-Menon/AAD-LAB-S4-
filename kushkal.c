@@ -29,16 +29,15 @@ void main()
 	int i,j,total_cost;
 	
 	printf("\nEnter number of vertices:");
-	
 	scanf("%d",&n);
-	
 	printf("\nEnter the adjacency matrix:\n");
-	
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			scanf("%d",&G[i][j]);
 			
 	kruskal();
+
+	printf("\n\nthe minnimum spanning tree is \nv1\tv2\tcost");
 	print();
 }
  
@@ -90,8 +89,10 @@ void union1(int belongs[],int c1,int c2)
 	int i;
 	
 	for(i=0;i<n;i++)
+		{
 		if(belongs[i]==c2)
 			belongs[i]=c1;
+		}
 }
  
 void sort()
@@ -119,5 +120,6 @@ void print()
 		cost=cost+spanlist.data[i].w;
 	}
  
-	printf("\n\nCost of the spanning tree=%d",cost);
+	printf("\n\nCost of the minnimum spanning tree=%d",cost);
+	printf("\n");
 }
